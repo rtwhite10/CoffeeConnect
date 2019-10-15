@@ -6,7 +6,9 @@
  * @flow
  */
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { PermissionsAndroid } from 'react-native';
+import Location from '../components/Location'
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,11 +26,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const LandingScreen: () => React$Node = () => {
+
+const LandingScreen = () => {
+
+
   return (
     <>
       <View style={styles.Container}>
-        <Text>Coffee Conection</Text>
+        <Location />
       </View>
     </>
   );

@@ -19,6 +19,8 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - Permission-LocationWhenInUse (2.0.2):
+    - RNPermissions
   - RCTRequired (0.61.2)
   - RCTTypeSafety (0.61.2):
     - FBLazyVector (= 0.61.2)
@@ -182,6 +184,10 @@ PODS:
     - React-cxxreact (= 0.61.2)
     - React-jsi (= 0.61.2)
   - React-jsinspector (0.61.2)
+  - react-native-geolocation (1.4.2):
+    - React
+  - react-native-location (2.5.0):
+    - React
   - React-RCTActionSheet (0.61.2):
     - React-Core/RCTActionSheetHeaders (= 0.61.2)
   - React-RCTAnimation (0.61.2):
@@ -219,6 +225,8 @@ PODS:
     - ReactCommon/jscallinvoker (= 0.61.2)
   - RNGestureHandler (1.4.1):
     - React
+  - RNPermissions (2.0.2):
+    - React
   - RNVectorIcons (6.6.0):
     - React
   - Yoga (1.14.0)
@@ -229,6 +237,7 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - Permission-LocationWhenInUse (from `../node_modules/react-native-permissions/ios/LocationWhenInUse.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -240,6 +249,8 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
+  - react-native-location (from `../node_modules/react-native-location`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -252,6 +263,7 @@ DEPENDENCIES:
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -270,6 +282,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  Permission-LocationWhenInUse:
+    :path: "../node_modules/react-native-permissions/ios/LocationWhenInUse.podspec"
   RCTRequired:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
@@ -288,6 +302,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-geolocation:
+    :path: "../node_modules/@react-native-community/geolocation"
+  react-native-location:
+    :path: "../node_modules/react-native-location"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -310,6 +328,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   Yoga:
@@ -322,6 +342,7 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 5a764c60abdc3336a213e5310c40b74741f32839
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  Permission-LocationWhenInUse: 75577651fdcc5bc34e1c41641989e13cfeac903a
   RCTRequired: c639d59ed389cfb1f1203f65c2ea946d8ec586e2
   RCTTypeSafety: dc23fb655d6c77667c78e327bf661bc11e3b8aec
   React: 7e586e5d7bec12b91c1a096826b0fc9ab1da7865
@@ -331,6 +352,8 @@ SPEC CHECKSUMS:
   React-jsi: 32285a21b1b24c36060493ed3057a34677d58d09
   React-jsiexecutor: 8909917ff7d8f21a57e443a866fd8d4560e50c65
   React-jsinspector: 111d7d342b07a904c400592e02a2b958f1098b60
+  react-native-geolocation: a7b94614afbd5fd8350e0233a2025c8228fc8041
+  react-native-location: 5a40ec1cc6abf2f6d94df979f98ec76c3a415681
   React-RCTActionSheet: 89b037c0fb7d2671607cb645760164e7e0c013f6
   React-RCTAnimation: e3cefa93c38c004c318f7ec04b883eb14b8b8235
   React-RCTBlob: d26ac0e313fbf14e7203473fd593ccaaeee8329e
@@ -342,9 +365,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: fb54c732fd20405a76598e431aa2f8c2bf527de9
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
+  RNPermissions: 9525b0f4d209fdf9a373d52d1492ae2943e691e5
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f
 
-PODFILE CHECKSUM: 54a5199f049e993be676ca567ded1ea771f2f10c
+PODFILE CHECKSUM: 623a98cd798aeb3ddee391056706b24ab98354d2
 
 COCOAPODS: 1.8.1
