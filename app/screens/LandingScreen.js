@@ -9,6 +9,7 @@
 import React, {useState, useEffect} from 'react';
 import { PermissionsAndroid } from 'react-native';
 import Location from '../components/Location'
+import RoasteryCard from '../components/RoasteryCard'
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,12 +29,19 @@ import {
 
 
 const LandingScreen = () => {
-
-
   return (
     <>
       <View style={styles.Container}>
-        <Location />
+        <View style={styles.TopArea}>
+          <Text style={styles.HeaderText}>Local Roastery's</Text>
+        </View>
+        <ScrollView style={styles.ScrollContainer}>
+        <RoasteryCard />
+        <RoasteryCard />
+        <RoasteryCard />
+        <RoasteryCard />
+        <RoasteryCard />
+        </ScrollView> 
       </View>
     </>
   );
@@ -43,8 +51,28 @@ const styles = StyleSheet.create({
   Container: {
     width: '100%',
     height: '100%',
+    backgroundColor: '#415958',
     alignItems: 'center',
-    justifyContent: 'center'
+  },
+  TopArea: {
+    position: "absolute",
+    top: 0,
+    bottom: '75%',
+    width: '100%',
+    backgroundColor: '#607D7C',
+  },
+  HeaderText: {
+    marginLeft: 20,
+    marginTop: 50,
+    fontSize: 22,
+    letterSpacing: 2,
+    color: '#FAD0A9' 
+  },
+  ScrollContainer: {
+    position: 'absolute',
+    top: '10%',
+    bottom: '10%',
+    width: '90%'
   }
 });
 

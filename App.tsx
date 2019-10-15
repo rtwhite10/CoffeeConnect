@@ -6,6 +6,12 @@ import { createAppContainer,  createSwitchNavigator } from 'react-navigation'
 const AppStack = createStackNavigator(
   {
     Home: LandingScreen
+  },
+  {
+    headerMode: 'none',
+    navigationOptions: {
+        headerVisible: false,
+    }
   }
 )
 
